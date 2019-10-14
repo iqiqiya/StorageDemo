@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="iqiqiya.lanlana.storagedemo.MainActivity">
+
+    <Button
+        android:id="@+id/share_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="ShareActivity"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/external_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="外部存储演示"
+        android:layout_margin="5dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="80dp"/>
+
+    <Button
+        android:id="@+id/internal_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="内部存储演示"
+        android:layout_margin="5dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="80dp"/>
+</LinearLayout>
