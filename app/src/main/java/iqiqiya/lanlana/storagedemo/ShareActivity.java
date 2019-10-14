@@ -1,5 +1,6 @@
 package iqiqiya.lanlana.storagedemo;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,8 @@ public class ShareActivity extends AppCompatActivity {
 
     private EditText accEdt;
     private EditText pwdEdt;
+    public  SharedPreferences.Editor editor;
+    private Context context;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +35,35 @@ public class ShareActivity extends AppCompatActivity {
     private void initUI(){
         accEdt = findViewById(R.id.acc_edt);
         pwdEdt = findViewById(R.id.pwd_edt);
+
+
+
+        //初始状态  直接读取sharedPreference
+        //111获取SharedPreference对象
+        final SharedPreferences sharedPreferences = getSharedPreferences("myshare",MODE_PRIVATE);
+        //222根据key获取内容(参数1： key   参数2：当对应key不存在，返回参数2)
+        String accStr = sharedPreferences.getString("account","");
+        String pwdStr = sharedPreferences.getString("pwd","");
+
+        accEdt.setText(accStr);
+        pwdEdt.setText(pwdStr);
+
+
+        //点击清空按钮执行清空操作
+        findViewById(R.id.clear_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //清空存储的账号密码
+                editor = sharedPreferences.edit();
+                editor.clear();
+                editor.commit();
+                accEdt.setText("");
+                pwdEdt.setText("");
+            }
+        });
+
+
+        //点击登录按钮
         findViewById(R.id.login_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +75,7 @@ public class ShareActivity extends AppCompatActivity {
                     //111获取SharedPreference对象(参数1：文件名  参数2：模式)
                     SharedPreferences sharedPreferences = getSharedPreferences("myshare",MODE_PRIVATE);
                     //222获取Editer对象
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor = sharedPreferences.edit();
                     //333存储信息
                     editor.putString("account",account);
                     editor.putString("pwd",pwd);
