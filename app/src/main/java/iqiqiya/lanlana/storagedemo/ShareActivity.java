@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import iqiqiya.lanlana.sharedpreferences.R;
+import iqiqiya.lanlana.StroageDemo.R;
 
 /**
  * Author: iqiqiya

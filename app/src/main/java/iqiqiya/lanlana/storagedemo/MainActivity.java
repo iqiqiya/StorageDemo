@@ -1,7 +1,7 @@
 package iqiqiya.lanlana.storagedemo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import iqiqiya.lanlana.sharedpreferences.R;
+import iqiqiya.lanlana.StroageDemo.R;
 
 import android.content.Intent;
 import android.os.Bundle;
