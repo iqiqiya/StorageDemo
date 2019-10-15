@@ -87,6 +87,7 @@ public class ExternalActivity extends AppCompatActivity implements View.OnClickL
                     FileOutputStream fos = new FileOutputStream(path, true);
                     String str = infoEdt.getText().toString();
                     fos.write(str.getBytes());
+                    fos.close();
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }
