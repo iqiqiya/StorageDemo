@@ -19,9 +19,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import iqiqiya.lanlana.StroageDemo.R;
 
 /**
@@ -51,6 +53,21 @@ public class ExternalActivity extends AppCompatActivity implements View.OnClickL
         textView = findViewById(R.id.textView);
         findViewById(R.id.save_btn).setOnClickListener(this);
         findViewById(R.id.read_btn).setOnClickListener(this);
+
+        //进入界面直接开始动态请求权限
+        int permisson = ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permisson!=PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1){
+            //TODO
+        }
     }
 
     @Override
